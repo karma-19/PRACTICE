@@ -1,0 +1,7 @@
+class Solution:
+    def carPooling(self, trips: List[List[int]], capacity: int) -> bool:
+        for _, k in sorted([x for n, i, j in trips for x in ([i, n], [j, -n])]):  # interesting concept
+            capacity -= k
+            if capacity<0:
+                return False
+        return True
